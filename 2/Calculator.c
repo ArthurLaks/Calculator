@@ -18,7 +18,7 @@ struct node{
 void addOperator(struct node* node,char operator);
 struct node* createEmptyNode();
 void addOperand(struct node* node,number operand);
-number processNode(struct node* node);
+number proccessNode(struct node* node);
 //Takes a pointer to an empty node and an operator and assigns the operator to the contents union of the node.
 void addOperator(struct node* node,char operator){
   union content contents;
@@ -57,7 +57,7 @@ int main(int nArgs,char** args){
   rightNode=rootNode->rightNode;
   
   //For every operand and operator, add a node for the operator and a child of that for the ooerand.
-  while(true){
+  while(1){
     number operand=nextDouble();
     //If the operand is the last one then assign it to rightNode, which is kept blank in the previous iterations of the loop and break.
     if(endOfBuffer()){
@@ -85,13 +85,14 @@ int main(int nArgs,char** args){
 	rightNode=rightNode->rightNode;
       }
   }
-  number result=processNode(rootNode);
+  number result=proccessNode(rootNode);
   printf("The result of the calculation is %f\n",result);
   return 0;
 }
 //This function proccesses a node. If it is a leaf node, it returns its content. If it is a branch node, it returns the operator it represents performed on its two children. It also realeases the memory used by the node in the heap.
 number proccessNode(struct node* node){
   number retval;
+  number divisor;
   if(node->leftNode==NULL)
     retval=node->contents.operand;
   else{
@@ -105,8 +106,9 @@ number proccessNode(struct node* node){
     case '*':
       retval=proccessNode(node->leftNode)*proccessNode(node->rightNode);
       break;
-    case '/'://Check for division by zero.
-      number divisor=proccessNode(node->rightNode);
+    case '/':
+      //Check for division by zero.
+      divisor=proccessNode(node->rightNode);
       if(divisor==0)
 	(void)printf("Division by zero error");
       retval=proccessNode(node->leftNode)/divisor;
