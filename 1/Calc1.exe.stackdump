@@ -1,9 +1,0 @@
-Exception: STATUS_ACCESS_VIOLATION at eip=0040123B
-eax=00000000 ebx=800101D0 ecx=800101E8 edx=611DBB10 esi=0000002E edi=00000061
-ebp=0028AC38 esp=0028AC00 program=C:\Users\Aryeh\Programs\c\Calc1.exe, pid 7052, thread main
-cs=0023 ds=002B es=002B fs=0053 gs=002B ss=002B
-Stack trace:
-Frame     Function  Args
-0028AC38  0040123B (00000002, 0028AC5C, 80010100, 61007F58)
-0028ACF8  61007FB5 (00000000, 0028CD84, 61007120, 00000000)
-End of stack trace
