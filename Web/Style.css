@@ -1,0 +1,16 @@
+.operator{
+    color:orange;
+    float:right;
+}
+.digit{
+
+    right: 30px;
+    color: red;
+}
+#display{
+    border: 5px solid;
+    padding-right: 5px;
+}
+form{
+    position:relative;
+}
