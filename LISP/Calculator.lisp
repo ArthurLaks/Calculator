@@ -101,8 +101,8 @@ should be inserted"
 	(find-position to-insert (slot-value root-node 'left-node))
       root-node))
 ;;Here is the actual interface
-(format t "Enter an expression to evaluate.  Make sure to surround it with parentheses and to 
-preface operators with #\\~%")
+(format t "Enter an expression to evaluate.  Make sure to surround it with parentheses, to put a space between operands and operators, and to 
+preface operators with #\\~%.x")
 (let ((expression (read)))
   (format t "The result of the calculation is ~5$~%" 
 	  (proccess-node (parse-expression expression))))
